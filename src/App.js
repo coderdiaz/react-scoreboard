@@ -1,12 +1,15 @@
 import './scoreboard.css';
 import React from 'react';
+import Context from './Context';
 import Scoreboard from './components/Scoreboard';
 
 function App() {
   return (
-    <div className="App">
-      <Scoreboard />
-    </div>
+    <Context>
+      <div className="App">
+        <Scoreboard />
+      </div>
+    </Context>
   );
 }
 

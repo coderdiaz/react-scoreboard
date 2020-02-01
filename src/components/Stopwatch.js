@@ -1,11 +1,13 @@
 import React from 'react';
+import { AppContext } from '../Context';
 
 class Stopwatch extends React.Component {
+  static contextType = AppContext;
+
   state = {
     elapsedTime: 0,
     previousTime: 0,
     intervalId: null,
-    isRunning: false,
   };
 
   // Mounted
@@ -21,7 +23,7 @@ class Stopwatch extends React.Component {
   }
 
   tick = () => {
-    if (this.state.isRunning) {
+    if (this.context.state.isRunning) {
       console.log('start');
       const now = Date.now();
       const time = this.state.elapsedTime;
@@ -34,11 +36,9 @@ class Stopwatch extends React.Component {
   }
 
   toogleHandler = () => {
-    const status = this.state.isRunning;
-    this.setState({
-      isRunning: !status,
-      previousTime: Date.now(),
-    });
+    const status = this.context.state.isRunning;
+    this.context.statusGame(!status);
+    this.setState({ previousTime: Date.now() });
   }
 
   reset = () => {
@@ -55,7 +55,7 @@ class Stopwatch extends React.Component {
         <div className="stopwatch-controls">
           <button
             className="btn handler" onClick={this.toogleHandler}>
-              {this.state.isRunning ? 'Stop' : 'Start'}
+              {this.context.state.isRunning ? 'Stop' : 'Start'}
             </button>
           <button className="btn" onClick={this.reset}>Reset</button>
         </div>
