@@ -8,11 +8,11 @@ const Statistics = () => {
     <tbody>
       <tr>
         <td className="row-label">Players:</td>
-        <td>{context.state.players.length}</td>
+        <td data-testid="players">{context.state.players.length}</td>
       </tr>
       <tr>
         <td className="row-label">Total points:</td>
-        <td>{context.totalPoints}</td>
+        <td data-testid="total-points">{context.totalPoints}</td>
       </tr>
     </tbody>
   </table>;

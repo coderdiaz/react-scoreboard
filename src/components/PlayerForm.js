@@ -20,12 +20,13 @@ const PlayerForm = () => {
   return (
     <form className="player-form" onSubmit={handleSubmit}>
       <input
+        data-testid="input-player"
         type="text"
         className="player-input"
         placeholder="Enter a player's name"
         onChange={(e) => handleChange(e)}
         value={playerName} />
-      <button type="submit" className="submit-button">Add player</button>
+      <button type="submit" className="submit-button" data-testid="button-player">Add player</button>
     </form>
   );
 };
