@@ -40,10 +40,6 @@ class Context extends React.Component {
     }
   }
 
-  get highestScore() {
-    
-  }
-
   render() {
     const totalPoints = this.state.players.reduce((total, player) => total + player.points, 0);
     const highestScore = () => {
